@@ -6,7 +6,18 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:14:31 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/17 15:14:32 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/18 14:14:39 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/push_swap.h"
+
+int	index_of(int n, int *arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != n)
+		i++;
+	return (i);
+}
