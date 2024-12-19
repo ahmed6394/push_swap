@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:13:41 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:58:03 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 17:09:48 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void swap(t_stack *stack, char identifier, int should_print)
     if (should_print)
         ft_printf("s%c\n", identifier);
 }
-
 
 void rotate(t_stack *stack, char identifier, int should_print)
 {

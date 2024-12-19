@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:50:23 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:05:15 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int ac, char *av[])
 	ft_printf("Before sort:");
 	print_stack(&stack_a);
     sort(&stack_a, &stack_b, nums, count);
+	// reverse_rotate(&stack_a, 'a', count);
 	ft_printf("After sort:");
     print_stack(&stack_a);
     free(nums);

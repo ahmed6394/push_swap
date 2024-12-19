@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:21:51 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:46:35 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:02:41 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	rotate(t_stack *stack, char identifier, int should_print);
 void	reverse_rotate(t_stack *stack, char identifier, int should_print);
 void 	sort(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
 int		is_sorted(t_stack *stack);
+void	free_stack(t_stack *stack);
 
 #endif
