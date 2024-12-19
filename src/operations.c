@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:13:41 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:02:26 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 16:58:03 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(t_stack *stack1, t_stack *stack2, char identifier, int should_print)
 {
 	int	index;
 
-	if (stack2->size == NULL)
+	if (stack2->size == 0)
 		return ;
 	index = stack2->top->s_index;
 	push_stack(stack1, index, pop_stack(stack2));

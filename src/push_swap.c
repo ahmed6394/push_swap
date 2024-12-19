@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:07:59 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 16:50:23 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ int main(int ac, char *av[])
     int count = 0;
 
     if (ac == 1)
-        exit(0);
+        return (0);
     parse_data(ac, av, &nums, &count);
     initialize_stack(&stack_a, &stack_b, nums, count);
+	ft_printf("Before sort:");
+	print_stack(&stack_a);
     sort(&stack_a, &stack_b, nums, count);
+	ft_printf("After sort:");
     print_stack(&stack_a);
     free(nums);
     // free_stack(&stack_a);

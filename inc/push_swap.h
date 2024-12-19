@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:21:51 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 16:06:57 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 16:46:35 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ typedef struct s_stack
 	int size;
 }t_stack;
 
-// void 	parse_data(int ac, char *av[], t_stack *stack_a, int **nums, int count);
-// void 	initialize_stack(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
-// void 	sort(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
-// void 	free_stack(t_stack *stack);
 void	parse_data(int ac, char *av[], int **nums, int *count);
 void 	initialize_stack(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
 void	handle_error(const char *message);
@@ -54,5 +50,6 @@ void	swap(t_stack *stack, char identifier, int should_print);
 void	rotate(t_stack *stack, char identifier, int should_print);
 void	reverse_rotate(t_stack *stack, char identifier, int should_print);
 void 	sort(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
- 
+int		is_sorted(t_stack *stack);
+
 #endif
