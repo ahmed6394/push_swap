@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:02:26 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/18 17:33:03 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/19 15:36:07 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	handle_error(const char *message)
 {
-	// ft_putstr_fd("FdF: ", 2);
-	ft_putendl_fd((char *)message, 2);
+	ft_printf("Error: %s\n", message);
 	exit(1);
 }
 
@@ -42,7 +41,7 @@ int valid_num(const char *str)
 int is_duplicate(int num, const int *nums, int count)
 {
 	int i;
-
+	
 	i = 0;
 	while(i < count)
 	{
