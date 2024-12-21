@@ -6,73 +6,86 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:13:41 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 17:09:48 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/21 18:35:33 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	push(t_stack *stack1, t_stack *stack2, char identifier, int should_print)
+void	push(t_stack **src, t_stack **dest, char stack_name)
 {
-	int	index;
+	t_stack	*temp;
 
-	if (stack2->size == 0)
+	if (*src == NULL)
+	{
 		return ;
-	index = stack2->top->s_index;
-	push_stack(stack1, index, pop_stack(stack2));
-	if (should_print)
-		ft_printf("p%c\n", identifier);
+	}
+	temp = *src;
+	*src = (*src)->next;
+	ft_lstadd_front_ps(dest, temp);
+	if (ft_isalpha(stack_name))
+	{
+		ft_printf("p%c\n", stack_name);
+	}
+}
+void	reverse_rotate(t_stack **stack, char stack_name)
+{
+	t_stack	*temp;
+	t_stack	*last;
+
+	if (ft_lstsize_ps(*stack) >= 2)
+	{
+		temp = *stack;
+		last = ft_lstlast_ps(*stack);
+		while (temp->next->next)
+		{
+			temp = temp->next;
+		}
+		temp->next = NULL;
+		last->next = *stack;
+		*stack = last;
+	}
+	if (ft_isalpha(stack_name))
+	{
+		ft_printf("rr%c\n", stack_name);
+	}
 }
 
-void swap(t_stack *stack, char identifier, int should_print)
+void	reverse_rotate_both(t_stack **a, t_stack **b, int print)
 {
-    t_node *first_node;
-    t_node *second_node;
+	reverse_rotate(a, '0');
+	reverse_rotate(b, '0');
+	if (print == 1)
+	{
+		ft_printf("rrr\n");
+	}
+}
+void	rotate(t_stack **stack, char stack_name)
+{
+	t_stack	*temp;
+	t_stack	*last;
 
-    if (!stack || !stack->top || !stack->top->next)
-        return;
-    first_node = stack->top;
-    second_node = first_node->next;
-    first_node->next = second_node->next;
-    second_node->next = first_node;
-    stack->top = second_node;
-    if (should_print)
-        ft_printf("s%c\n", identifier);
+	if (ft_lstsize_ps(*stack) >= 2)
+	{
+		temp = *stack;
+		*stack = temp->next;
+		temp->next = NULL;
+		last = ft_lstlast_ps(*stack);
+		last->next = temp;
+	}
+	if (ft_isalpha(stack_name))
+	{
+		ft_printf("r%c\n", stack_name);
+	}
 }
 
-void rotate(t_stack *stack, char identifier, int should_print)
+// rr
+void	rotate_both(t_stack **a, t_stack **b, int print)
 {
-	t_node *first_node;
-	t_node *last_node;
-
-    if (!stack || !stack->top || !stack->top->next)
-        return;
-	first_node = stack->top;
-    last_node = stack->top;
-    while (last_node->next)
-        last_node = last_node->next;
-    stack->top = first_node->next;
-    last_node->next = first_node;
-    first_node->next = NULL;
-    if (should_print)
-        ft_printf("r%c\n", identifier);
-}
-void reverse_rotate(t_stack *stack, char identifier, int should_print)
-{
-    t_node *last_node;
-    t_node *second_last_node;
-
-    if (!stack || !stack->top || !stack->top->next)
-        return;
-    last_node = stack->top;
-    while (last_node->next)
-        last_node = last_node->next;
-    second_last_node = stack->top;
-    while (second_last_node->next != last_node)
-        second_last_node = second_last_node->next;
-    second_last_node->next = NULL;
-    last_node->next = stack->top;
-    stack->top = last_node;
-    if (should_print)
-        ft_printf("rr%c\n", identifier);
+	rotate(a, '0');
+	rotate(b, '0');
+	if (print == 1)
+	{
+		ft_printf("rr\n");
+	}
 }
