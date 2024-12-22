@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:12:59 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 12:45:29 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 16:44:37 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	*arg_parse(char **data, t_stack **a)
 	{
 		if (ft_strlen(*data) > 11)
 			return (0);
-		if (!is_number(*data))
+		if (!check_digits(*data))
 			return (0);
 		current_num = ft_atol(*data);
 		if (current_num < INT_MIN || current_num > INT_MAX)

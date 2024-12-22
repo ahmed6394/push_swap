@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:21:51 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/21 18:36:37 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 19:39:01 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	parse_data(int ac, char *av[], int **nums, int *count);
-void 	initialize_stack(t_stack *stack_a, t_stack *stack_b, int *nums, int count);
+//parse
+void parse_data(int ac, char *av[], t_stack **stack_a, int *count);
+int	*arg_parse(char **data, t_stack **a);
+int	check_digits(char *str);
+static void	free_split(char **split);
+
 void	handle_error(const char *message);
 int		index_of(int n, int *arr);
 void	handle_error(const char *message);
 int		valid_num(const char *str);
-int		is_duplicate(int num, const int *nums, int count);
-void	push_stack(t_stack *stack, int index, int data);
-int		pop_stack(t_stack *stack);
+int is_duplicate(int num, t_stack *stack_a);
+
 //operations
 void	push(t_stack **src, t_stack **dest, char stack_name);
 void	reverse_rotate(t_stack **stack, char stack_name);
@@ -51,5 +54,10 @@ void	rotate(t_stack **stack, char stack_name);
 void	rotate_both(t_stack **a, t_stack **b, int print);
 void	swap(t_stack *stack, char stack_name);
 void	swap_both(t_stack *a, t_stack *b, int print);
+t_stack *last_node(t_stack *stack);
+int stack_size(t_stack *stack);
+
+//utiles
+void free_stack(t_stack *stack);
 
 #endif

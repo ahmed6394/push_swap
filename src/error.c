@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:02:26 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 15:36:07 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 18:11:55 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,14 @@ int valid_num(const char *str)
 	return (1);
 }
 
-int is_duplicate(int num, const int *nums, int count)
+int is_duplicate(int num, t_stack *stack_a)
 {
-	int i;
-	
-	i = 0;
-	while(i < count)
-	{
-		if (nums[i] == num)
-			return (1);
-		i++;
-	}
-	return 0;
+    t_stack *current = stack_a;
+    while (current)
+    {
+        if (current->data == num)
+            return 1;  // Duplicate found
+        current = current->next;
+    }
+    return 0;  // No duplicates
 }

@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 12:52:56 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 18:27:49 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,24 @@ static void print_stack(t_stack *stack)
     ft_printf("\n");
 }
 
-int	main(int ac, char *av[])
+int main(int ac, char *av[])
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		parsing_result;
+    t_stack *stack_a;
+    t_stack *stack_b;
+    int count;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (ac < 2)
-		return (1);
-	parsing_result = start_parsing(ac, av, &stack_a);
-	
-	// sort(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (1);
+    stack_a = NULL;
+    stack_b = NULL;
+
+    if (ac < 2)
+        return 1;
+
+    parse_data(ac, av, &stack_a, &count);
+    print_stack(stack_a);
+
+    // sort(&stack_a, &stack_b); // Add sorting logic here when you're ready
+    free_stack(stack_a);
+    free_stack(stack_b);
+    return 0;
 }
+

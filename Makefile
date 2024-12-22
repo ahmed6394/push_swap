@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -g -fsanitize=address
 
 # SRC = src/main.c
-SRC = src/push_swap.c src/parse.c src/error.c src/utiles.c src/operations.c src/sort.c
+SRC = src/push_swap.c src/parse2.c src/error.c src/utiles.c 
 
 OBJ = $(SRC:.c=.o)
 
