@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 19:05:15 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 12:52:56 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,31 @@
 
 static void print_stack(t_stack *stack)
 {
-    t_node *current = stack->top;
+    t_stack *current = stack;
     
-    printf("Stack contents: ");
+    ft_printf("Stack contents: ");
     while (current) {
-        printf("%d ", current->value);
+        printf("%d ", current->data);
         current = current->next;
     }
-    printf("\n");
+
+    ft_printf("\n");
 }
 
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
-    t_stack stack_a;
-    t_stack stack_b;
-    int *nums = NULL;
-    int count = 0;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		parsing_result;
 
-    if (ac == 1)
-        return (0);
-    parse_data(ac, av, &nums, &count);
-    initialize_stack(&stack_a, &stack_b, nums, count);
-	ft_printf("Before sort:");
-	print_stack(&stack_a);
-    sort(&stack_a, &stack_b, nums, count);
-	// reverse_rotate(&stack_a, 'a', count);
-	ft_printf("After sort:");
-    print_stack(&stack_a);
-    free(nums);
-    // free_stack(&stack_a);
-    return 0;
+	stack_a = NULL;
+	stack_b = NULL;
+	if (ac < 2)
+		return (1);
+	parsing_result = start_parsing(ac, av, &stack_a);
+	
+	// sort(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (1);
 }

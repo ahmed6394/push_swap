@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:57:39 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/19 15:40:52 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 12:43:53 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,35 @@ int	ft_atoi(const char *str)
 		return (sign * num);
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+long	ft_atol(const char *str)
+{
+	int		i;
+	long	num;
+	int		neg;
+
+	i = 0;
+	num = 0;
+	neg = 0;
+	if (!str[i])
+		return (0);
+	while (ft_strchr(" \t\n\r\v\f", str[i]) != NULL)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg = 1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	if (neg == 1)
+		num *= -1;
+	return (num);
 }
 
 // #include <stdlib.h>
