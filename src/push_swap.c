@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 18:27:49 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/22 19:56:42 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int ac, char *av[])
     parse_data(ac, av, &stack_a, &count);
     print_stack(stack_a);
 
-    // sort(&stack_a, &stack_b); // Add sorting logic here when you're ready
+    sort(&stack_a, &stack_b);
     free_stack(stack_a);
     free_stack(stack_b);
     return 0;
