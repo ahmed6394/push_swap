@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 12:54:31 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:46:06 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,15 @@ int main(int ac, char *av[])
 
     stack_a = NULL;
     stack_b = NULL;
-
     if (ac < 2)
-        return 1;
-
+        return 0;
     parse_data(ac, av, &stack_a, &count);
+	if (!stack_a || stack_size(stack_a) < 2)
+		return (0);
     sort(&stack_a, &stack_b);
-	print_stack(stack_a);
+	// print_stack(stack_a);
     free_stack(stack_a);
     free_stack(stack_b);
-
     return 0;
 }
 

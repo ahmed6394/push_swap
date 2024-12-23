@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 13:24:53 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 15:24:14 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:20:48 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_stack_basics(t_stack *stack, char stack_name)
 	if (stack == NULL)
 		return ;
 	i = 0;
-	median = ft_lstsize_ps(stack) / 2;
+	median = stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->name = stack_name;

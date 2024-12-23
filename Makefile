@@ -4,7 +4,7 @@ CFLAGS = -g -fsanitize=address
 
 # SRC = src/main.c
 SRC = src/push_swap.c src/parse2.c src/error.c src/utiles.c src/sort.c src/operations.c \
-	src/operations2.c src/init.c
+	src/operations2.c src/init.c src/sort_utils.c
 
 OBJ = $(SRC:.c=.o)
 

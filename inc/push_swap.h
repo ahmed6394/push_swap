@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:21:51 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 15:24:25 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:19:26 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ int		get_stack_size(t_stack *stack);
 t_stack	*get_max(t_stack *stack);
 t_stack	*get_min(t_stack *stack);
 t_stack	*get_cheapest_node(t_stack *stack);
+void	move_to_top(t_stack *node1, t_stack *node2, t_stack **stack1, t_stack **stack2);
+void	push_to_target_stack(t_stack **current, t_stack **target);
+void	check_min_on_top(t_stack **a);
 
 //error
 void	free_stack(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:14:24 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 15:28:54 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:44:18 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		swap(*stack_a, 'a');
 	else if (count == 3)
 		simple_sort(stack_a);
-	else if (count > 7)
+	else if (count > 3)
 	{
-		//turk_algoritham;
+		long_sort(stack_a, stack_b);
 	}
 	else
-		handle_error("");
+		handle_error("else in sort");
 }
 
 int	is_sorted(t_stack *stack)
@@ -91,16 +91,17 @@ void	long_sort(t_stack **stack_a, t_stack **stack_b)
 	while (size_a > 3 && !is_sorted(*stack_a))
 	{
 		init_stack(*stack_a, *stack_b, 'a', 'b');
-		// push a to b in target position
+		push_to_target_stack(stack_a, stack_b);
 		size_a--;
 	}
-	simple_sort(*stack_a);
+	simple_sort(stack_a);
 	size_b = stack_size(*stack_b);
 	while (size_b > 0)
 	{
 		init_stack(*stack_b, *stack_a, 'b', 'a');
-		// push b to a in tergate position
+		push_to_target_stack(stack_b, stack_a);
 		size_b--;
 	}
-
+	init_stack_basics(*stack_a, 'a');
+	check_min_on_top(stack_a);
 }
