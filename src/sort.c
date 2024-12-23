@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:14:24 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 12:28:10 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 15:28:54 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,3 +78,29 @@ void simple_sort(t_stack **stack)
         reverse_rotate(stack, 'a');
 }
 
+void	long_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	int	size_a;
+	int	size_b;
+
+	size_a = stack_size(*stack_a);
+	if (size_a-- > 3 && !is_sorted(*stack_a))
+		push(stack_a, stack_b, 'b');
+	if (size_a-- > 3 && !is_sorted(*stack_a))
+		push(stack_a, stack_b, 'b');
+	while (size_a > 3 && !is_sorted(*stack_a))
+	{
+		init_stack(*stack_a, *stack_b, 'a', 'b');
+		// push a to b in target position
+		size_a--;
+	}
+	simple_sort(*stack_a);
+	size_b = stack_size(*stack_b);
+	while (size_b > 0)
+	{
+		init_stack(*stack_b, *stack_a, 'b', 'a');
+		// push b to a in tergate position
+		size_b--;
+	}
+
+}

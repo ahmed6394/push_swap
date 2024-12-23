@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:02:26 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 18:11:55 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 12:58:52 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ void	handle_error(const char *message)
 {
 	ft_printf("Error: %s\n", message);
 	exit(1);
+}
+
+void free_stack(t_stack *stack)
+{
+    t_stack *temp;
+
+    while (stack)
+    {
+        temp = stack->next;
+        free(stack);
+        stack = temp;
+    }
 }
 
 int valid_num(const char *str)

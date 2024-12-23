@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:30:58 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 12:06:32 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 12:54:31 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main(int ac, char *av[])
 	print_stack(stack_a);
     free_stack(stack_a);
     free_stack(stack_b);
+
     return 0;
 }
 
