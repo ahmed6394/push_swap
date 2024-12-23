@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:21:51 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 19:57:12 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 12:27:34 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int stack_size(t_stack *stack);
 //sort
 void	sort(t_stack **stack_a, t_stack **stack_b);
 int	is_sorted(t_stack *stack);
+void simple_sort(t_stack **stack);
+
 //utiles
 void free_stack(t_stack *stack);
 
