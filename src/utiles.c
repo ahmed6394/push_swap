@@ -6,18 +6,18 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:14:31 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 12:59:38 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/24 12:04:43 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(stack)
+	while (stack)
 	{
 		stack = stack->next;
 		i++;

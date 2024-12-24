@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:13:41 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/22 19:36:07 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 19:41:19 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	push(t_stack **src, t_stack **dest, char stack_name)
 	temp = *src;
 	*src = (*src)->next;
 	temp->next = *dest;
-    *dest = temp;   
+	*dest = temp;
 	if (ft_isalpha(stack_name))
 		ft_printf("p%c\n", stack_name);
 }
+
 void	reverse_rotate(t_stack **stack, char stack_name)
 {
 	t_stack	*temp;
@@ -55,6 +56,7 @@ void	reverse_rotate_both(t_stack **a, t_stack **b, int print)
 		ft_printf("rrr\n");
 	}
 }
+
 void	rotate(t_stack **stack, char stack_name)
 {
 	t_stack	*temp;
@@ -69,17 +71,13 @@ void	rotate(t_stack **stack, char stack_name)
 		last->next = temp;
 	}
 	if (ft_isalpha(stack_name))
-
 		ft_printf("r%c\n", stack_name);
 }
 
-// rr
 void	rotate_both(t_stack **a, t_stack **b, int print)
 {
 	rotate(a, '0');
 	rotate(b, '0');
 	if (print == 1)
-	{
 		ft_printf("rr\n");
-	}
 }

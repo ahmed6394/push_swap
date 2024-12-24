@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:19:41 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 12:59:17 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 19:56:56 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,14 @@ void	swap_both(t_stack *a, t_stack *b, int print)
 	}
 }
 
-t_stack *last_node(t_stack *stack)
+t_stack	*last_node(t_stack *stack)
 {
-    t_stack *last_entry;
+	t_stack	*last_entry;
 
-    if (stack == NULL)
-        return NULL;
-    last_entry = stack;
-    while (last_entry->next != NULL)
-    {
-        last_entry = last_entry->next;
-    }
-    return last_entry;
+	if (stack == NULL)
+		return (NULL);
+	last_entry = stack;
+	while (last_entry->next != NULL)
+		last_entry = last_entry->next;
+	return (last_entry);
 }
-

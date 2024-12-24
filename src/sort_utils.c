@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 16:11:13 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 16:18:07 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/23 20:06:30 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	move_to_top(t_stack *node1, t_stack *node2, \
 
 void	push_to_target_stack(t_stack **current, t_stack **target)
 {
-	t_stack *push_node;
+	t_stack	*push_node;
 
 	if ((*current)->name == 'a')
 		push_node = get_cheapest_node(*current);
@@ -53,6 +53,7 @@ void	push_to_target_stack(t_stack **current, t_stack **target)
 		move_to_top(push_node, push_node->target, current, target);
 	push(current, target, push_node->target->name);
 }
+
 void	check_min_on_top(t_stack **a)
 {
 	t_stack	*min;

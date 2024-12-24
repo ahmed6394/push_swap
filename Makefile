@@ -1,8 +1,7 @@
 CC = cc
-# CFLAGS = -g -fsanitize=address
-CFLAGS = -g -fsanitize=address
 
-# SRC = src/main.c
+CFLAGS = -g -fsanitize=address -Wall -Wextra -Werror
+
 SRC = src/push_swap.c src/parse2.c src/error.c src/utiles.c src/sort.c src/operations.c \
 	src/operations2.c src/init.c src/sort_utils.c
 

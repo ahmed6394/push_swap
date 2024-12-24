@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 13:24:53 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 16:20:48 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/24 11:59:55 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,22 @@ static void	calc_push_cost(t_stack *a, t_stack *b)
 {
 	int	cost_a;
 	int	cost_b;
+	int	len_a;
+	int	len_b;
 
+	len_a = stack_size(a);
+	len_b = stack_size(b);
 	while (a)
 	{
 		if (a->above_median)
 			cost_a = a->index;
 		else
-			cost_a = get_stack_size(a) - a->index;
+			cost_a = len_a - a->index;
 		if (a->target->above_median)
 			cost_b = a->target->index;
 		else
-			cost_b = get_stack_size(b) - a->target->index;
-		if (a->above_median == a->target->above_median)
-		{
-			if (cost_a > cost_b)
-				a->push_cost = cost_a;
-			else
-				a->push_cost = cost_b;
-		}
-		else
-			a->push_cost = cost_a + cost_b;
+			cost_b = len_b - a->target->index;
+		a->push_cost = cost_a + cost_b;
 		a = a->next;
 	}
 }

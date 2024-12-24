@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:14:24 by gahmed            #+#    #+#             */
-/*   Updated: 2024/12/23 16:44:18 by gahmed           ###   ########.fr       */
+/*   Updated: 2024/12/24 12:33:26 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,29 @@
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int count;
+	int	count;
 
 	count = stack_size(*stack_a);
 	if (is_sorted(*stack_a))
-	{
-		// free(stack_a->data);
-		// free_stack(stack_a);
-		handle_error("Stack is sorted");
-	}
+		return ;
 	else if (count == 2)
 		swap(*stack_a, 'a');
 	else if (count == 3)
 		simple_sort(stack_a);
 	else if (count > 3)
-	{
 		long_sort(stack_a, stack_b);
-	}
 	else
-		handle_error("else in sort");
+		handle_error();
 }
 
 int	is_sorted(t_stack *stack)
 {
 	t_stack	*temp;
-	
-	 if (!stack || !stack->next)
-        return (1);
+
+	if (!stack || !stack->next)
+		return (1);
 	temp = stack;
-	while(temp->next)
+	while (temp->next)
 	{
 		if (temp->data > temp->next->data)
 			return (0);
@@ -51,31 +45,33 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void simple_sort(t_stack **stack)
+void	simple_sort(t_stack **stack)
 {
-    int a, b, c;
+	int	a;
+	int	b;
+	int	c;
 
-    if (is_sorted(*stack))
-        return;
-    a = (*stack)->data;
-    b = (*stack)->next->data;
-    c = (*stack)->next->next->data;
-    if (a > b && b < c && a < c)
-        swap(*stack, 'a');
-    else if (a > b && b > c && a > c)
+	if (is_sorted(*stack))
+		return ;
+	a = (*stack)->data;
+	b = (*stack)->next->data;
+	c = (*stack)->next->next->data;
+	if (a > b && b < c && a < c)
+		swap(*stack, 'a');
+	else if (a > b && b > c && a > c)
 	{
-        swap(*stack, 'a');
-        reverse_rotate(stack, 'a');
-    }
-    else if (a > b && b < c && a > c)
-        rotate(stack, 'a');
-    else if (a < b && b > c && a < c)
+		swap(*stack, 'a');
+		reverse_rotate(stack, 'a');
+	}
+	else if (a > b && b < c && a > c)
+		rotate(stack, 'a');
+	else if (a < b && b > c && a < c)
 	{
-        swap(*stack, 'a');
-        rotate(stack, 'a');
-    }
-    else if (a < b && b > c && a > c)
-        reverse_rotate(stack, 'a');
+		swap(*stack, 'a');
+		rotate(stack, 'a');
+	}
+	else if (a < b && b > c && a > c)
+		reverse_rotate(stack, 'a');
 }
 
 void	long_sort(t_stack **stack_a, t_stack **stack_b)
